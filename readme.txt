@@ -1,3 +1,6 @@
+git 软件安装
+yum install -y git
+
 外地校区
 git clone git://124.193.128.166/nsd1805.git
 
