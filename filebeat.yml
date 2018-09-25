@@ -1,0 +1,20 @@
+filebeat:
+  prospectors:
+    -
+      paths:
+        - /var/log/httpd/access_log
+      input_type: log
+      document_type: apachelog
+    -
+      paths:
+        - /var/log/httpd/json_log
+      input_type: log
+      document_type: jsonlog
+  registry_file: /var/lib/filebeat/registry
+output:
+  logstash:
+    hosts: ["192.168.1.20:5044"]
+shipper:
+logging:
+  files:
+    rotateeverybytes: 10485760 # = 10MB
