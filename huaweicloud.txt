@@ -24,3 +24,8 @@ passwd
 5 优化交互分区内存使用条件
 cat /etc/sysctl.conf 
 vm.swappiness = 1
+
+# 安装 Linux + Apache + Mysql + php
+# 安装 Linux + Nginx  + Mysql + php(7.x +)
+# 提示：外网不能访问到的，如果想让外网访问就需要在跳板机上配置
+
