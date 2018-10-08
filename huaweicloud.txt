@@ -1,0 +1,26 @@
+云主机初始化
+
+1 安装常用软件、卸载不使用的服务
+yum install psmisc vim tree vsftpd createrepo chronyd
+yum remove firewalld-*  postfix
+
+2 配置使用云服务商提供的 yum 源，配置自定义 yum 源
+cd /etc/yum.repos.d/
+rm -f *
+curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.myhuaweicloud.com/repo/CentOS-Base-7.repo
+
+mkdir  /var/ftp/tedu
+cd   /var/ftp/tedu
+createrepo .
+
+3 更换 ntpd 服务为 chronyd
+systemctl stop ntpd
+systemctl disable ntpd
+systemctl enable chronyd
+
+4设置 root 密码
+passwd 
+
+5 优化交互分区内存使用条件
+cat /etc/sysctl.conf 
+vm.swappiness = 1
